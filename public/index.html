@@ -21,11 +21,34 @@
       property="og:url"
       content="https://reliable-chaja-b9660d.netlify.app/"
     />
+    <meta property="fb:app_id" content="804342204009721" />
   </head>
   <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
   <script>
     Kakao.init('0fe6973d64b3cab30b4521870ef69f6a');
     console.log(Kakao.isInitialized());
+  </script>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '660351765471499',
+        xfbml: true,
+        version: 'v15.0',
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
   </script>
   <body>
     <div id="root"></div>

@@ -6,6 +6,7 @@ import 'moment/locale/ko';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Kakao from '../../../app/Kakao';
+import Facebook from '../../../app/Facebook';
 
 const DetailContents = () => {
   const params = useParams();
@@ -63,6 +64,13 @@ const DetailContents = () => {
           <h3>해당 없음</h3>
         )}
         <Kakao
+          imageUrl={imageUrl}
+          amount={amount}
+          brand={brand}
+          name={name}
+          params={params.id}
+        />
+        <Facebook
           imageUrl={imageUrl}
           amount={amount}
           brand={brand}

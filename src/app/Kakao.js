@@ -21,12 +21,7 @@ const Kakao = ({ imageUrl, amount, brand, name, params }) => {
   };
 
   return (
-    <KakaoBtn
-      id="kakao-link-btn"
-      className="bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-      type="button"
-      onClick={onShareKakaoClick}
-    >
+    <KakaoBtn id="kakao-link-btn" onClick={onShareKakaoClick}>
       카카오
     </KakaoBtn>
   );
@@ -36,6 +31,8 @@ export default Kakao;
 const KakaoBtn = styled.button`
   height: 50px;
   background-color: rgb(255, 222, 50);
-  color: rgb(55, 27, 27) !important;
-  font-weight: 700;
+  color: rgb(55, 27, 27);
+  border-radius: 10px;
+  padding: 0px 10px;
+  font-weight: 800;
 `;
