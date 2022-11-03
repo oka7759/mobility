@@ -2,13 +2,19 @@ import React from 'react';
 import theme from '../styles/theme';
 import styled from 'styled-components';
 import back from '../assets/images/back.png';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const checkPage = useSelector(state => state.checkPage.value);
+  console.log(checkPage);
   return (
     <HeaderBox>
       <HeaderTitle>
-        <HeaderBackBtn />
-        전체차량
+        <Link to="/">
+          <HeaderBackBtn />
+        </Link>
+        {checkPage ? '전체차량' : '차량상세'}
       </HeaderTitle>
     </HeaderBox>
   );
@@ -18,7 +24,6 @@ export default Header;
 
 const HeaderBox = styled.div`
   width: 100%;
-
   border-bottom: 1px solid ${theme.mainBlack};
 `;
 

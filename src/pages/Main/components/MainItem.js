@@ -1,34 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from '../../../styles/theme';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const MainItem = ({ buckets }) => {
-  console.log(buckets);
-
-  return (
-    buckets &&
+const MainItem = () => {
+  const buckets = useSelector(state => state.buckets.value);
+  return buckets.length ? (
     buckets.map(item => {
       const { attribute, amount, id } = item;
+      const { name, brand, imageUrl, fuelType, segment } = attribute;
       return (
-        <MainItemBox key={`cars` + id}>
-          <MainItemTextBox>
-            <h3>
-              {attribute.brand}
-              <br />
-              {attribute.name}
-            </h3>
-            <p>
-              {CLASS_TYPE[attribute.segment]}/ {FUEL_TYPE[attribute.fuelType]}
-              <br />월 {amount}만원 부터
-            </p>
-          </MainItemTextBox>
+        <Link to={`/detail/${id}`} key={`cars` + id}>
+          <MainItemBox>
+            <MainItemTextBox>
+              <h3>
+                {brand}
+                <br />
+                {name}
+              </h3>
+              <p>
+                {CLASS_TYPE[segment]}/ {FUEL_TYPE[fuelType]}
+                <br />월 {amount.toLocaleString('ko-KR')}원 부터
+              </p>
+            </MainItemTextBox>
 
-          <MainItemImgBox imageUrl={attribute.imageUrl}>
-            <NewBadge>신규</NewBadge>
-          </MainItemImgBox>
-        </MainItemBox>
+            <MainItemImgBox imageUrl={imageUrl}>
+              <NewBadge>신규</NewBadge>
+            </MainItemImgBox>
+          </MainItemBox>
+        </Link>
       );
     })
+  ) : (
+    <NoData>
+      <p>차량 준비 중입니다.</p>
+    </NoData>
   );
 };
 
@@ -81,6 +88,16 @@ const NewBadge = styled.span`
   background-color: ${theme.mainBlue};
   border-radius: 42px;
   color: white;
+`;
+
+const NoData = styled.div`
+  width: 100%;
+  padding: 150px 0;
+
+  p {
+    font-size: 20px;
+    text-align: center;
+  }
 `;
 const CLASS_TYPE = { E: '대형', D: '중형', C: '소형', SUV: 'SUV' };
 const FUEL_TYPE = { gasoline: '가솔린', ev: '전기', hybrid: '하이브리드' };

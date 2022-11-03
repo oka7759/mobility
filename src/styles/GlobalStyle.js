@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1;
     font-family: 'Inter', sans-serif;
-    color: #3a3a3a;
+ 
     background-color: #eeee;
   }
 
@@ -27,7 +27,11 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: #3a3a3a;
+    color:black;
+    :hover{
+      color:black;
+    }
+    
 
   }
 
