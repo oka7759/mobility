@@ -47,6 +47,9 @@ const MainItemBox = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${theme.mainBlack};
+  :hover {
+    background-color: rgba(204, 204, 204, 0.3);
+  }
 `;
 const MainItemTextBox = styled.div`
   width: calc(50% - 40px);
