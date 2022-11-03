@@ -11,9 +11,7 @@ const Header = () => {
   return (
     <HeaderBox>
       <HeaderTitle>
-        <Link to="/">
-          <HeaderBackBtn />
-        </Link>
+        <Link to="/">{!checkPage && <HeaderBackBtn />}</Link>
         {checkPage ? '전체차량' : '차량상세'}
       </HeaderTitle>
     </HeaderBox>
