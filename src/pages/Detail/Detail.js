@@ -43,4 +43,5 @@ const Detail = () => {
 export default Detail;
 const DetailBox = styled.div`
   width: 100%;
+  position: relative;
 `;
