@@ -20,11 +20,12 @@ const Router = () => {
 };
 
 export default Router;
+
 const Container = styled.div`
   width: 100%;
   max-width: 450px;
   margin: 0 auto;
   background-color: white;
   padding: 10px;
-  height: 100vh;
+  min-height: 100vh;
 `;

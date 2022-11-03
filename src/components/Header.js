@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
   const checkPage = useSelector(state => state.checkPage.value);
-  console.log(checkPage);
+
   return (
     <HeaderBox>
       <HeaderTitle>
